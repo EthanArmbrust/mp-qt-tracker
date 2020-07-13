@@ -42,6 +42,12 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    Resources.qrc
+    primehook.cpp
+    Common/MemoryCommon.cpp
+    MemoryWatch/MemWatchEntry.cpp
+    DolphinProcess/DolphinAccessor.cpp
+    DolphinProcess/Linux/LinuxDolphinProcess.cpp
     ${TS_FILES}
   )
 endif()

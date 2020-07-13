@@ -1,2 +1,30 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/mp">
+        <file>resources/bombs.png</file>
+        <file>resources/Boost_Ball.png</file>
+        <file>resources/Charge_Beam.png</file>
+        <file>resources/chozo_artifact.png</file>
+        <file>resources/etank.png</file>
+        <file>resources/Flamethrower.png</file>
+        <file>resources/grapple_beam.png</file>
+        <file>resources/Gravity_Suit.png</file>
+        <file>resources/Ice_beam.png</file>
+        <file>resources/Ice_Spreader.png</file>
+        <file>resources/Missile_Big.png</file>
+        <file>resources/Missile_launcher.png</file>
+        <file>resources/Morph_Ball.png</file>
+        <file>resources/Phazon_Suit.png</file>
+        <file>resources/Plasma_beam.png</file>
+        <file>resources/Power_Bomb.png</file>
+        <file>resources/Power_Bombs_big.png</file>
+        <file>resources/Space_Jump_Boots.png</file>
+        <file>resources/Spider_Ball.png</file>
+        <file>resources/Super_Missile.png</file>
+        <file>resources/Thermal_Visor.png</file>
+        <file>resources/Varia_Suit.png</file>
+        <file>resources/Wave_beam.png</file>
+        <file>resources/Wavebuster.png</file>
+        <file>resources/XRay_Visor.png</file>
+        <file>Varia.ico</file>
+    </qresource>
+</RCC>
