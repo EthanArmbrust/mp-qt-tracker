@@ -27,6 +27,7 @@ PrimeHook::PrimeHook()
 
 PrimeHook::~PrimeHook(){
     delete igt_entry;
+    delete gameid_entry;
 }
 
 std::vector<std::vector<int>> PrimeHook::item_values(){
@@ -36,7 +37,7 @@ std::vector<std::vector<int>> PrimeHook::item_values(){
     for(unsigned i = 0; i < item_grid.size(); i++){
         std::vector<int> line;
         for(unsigned j = 0; j < item_grid[i].size(); j++){
-            if(item_grid[i][j].entry->readMemoryFromRAM() == Common::MemOperationReturnCode::justK){
+            if(item_grid[i][j].entry->readMemoryFromRAM() == Common::MemOperationReturnCode::OK){
                 line.push_back(stoi(item_grid[i][j].entry->getStringFromMemory()));
             }
             else{
@@ -54,6 +55,10 @@ void PrimeHook::init_watches(){
     igt_entry->setConsoleAddress(0x804578CC);
     igt_entry->setBoundToPointer(true);
     igt_entry->addOffset(0xA0);
+
+    gameid_entry = new MemWatchEntry;
+    gameid_entry->setTypeAndLength(Common::MemType::type_string, sizeof(char) * 6);
+    gameid_entry->setConsoleAddress(MEM_START);
 }
 
 prime_item PrimeHook::create_item(std::string name, u32 offset, bool isCounter)
@@ -124,7 +129,7 @@ std::vector<prime_item> PrimeHook::init_artifacts(){
 int PrimeHook::artifact_count(){
     int sum = 0;
     for(prime_item i : artifact_list){
-        if(i.entry->readMemoryFromRAM() == Common::MemOperationReturnCode::justK){
+        if(i.entry->readMemoryFromRAM() == Common::MemOperationReturnCode::OK){
             if(stoi(i.entry->getStringFromMemory())){
                 sum++;
             }
@@ -158,7 +163,7 @@ std::string PrimeHook::get_IGT_value(){
     //DolphinComm::DolphinAccessor::hook();
     //DolphinComm::DolphinAccessor::updateRAMCache();
     if(igt_entry != nullptr){
-        if(igt_entry->readMemoryFromRAM() == Common::MemOperationReturnCode::justK){
+        if(igt_entry->readMemoryFromRAM() == Common::MemOperationReturnCode::OK){
             return format_IGT(igt_entry->getStringFromMemory());
         }
         return "";
@@ -206,10 +211,10 @@ bool PrimeHook::attemptHook(){
 
 
 std::string PrimeHook::getGameID(){
-    //std::cout << "Checking game id" << std::endl;
-    //DolphinComm::DolphinAccessor::updateRAMCache();
-    std::string game_id = DolphinComm::DolphinAccessor::getFormattedValueFromCache(Common::dolphinAddrToOffset(0x80000000), Common::MemType::type_string, sizeof(char) * 6, Common::MemBase::base_none, true);
-    //std::cout << "Checked" << std::endl;
+    std::string game_id = "";
+    if (gameid_entry->readMemoryFromRAM() == Common::MemOperationReturnCode::OK) {
+        game_id = gameid_entry->getStringFromMemory();
+    }
     return game_id;
 }
 

@@ -21,6 +21,7 @@ public:
     std::string get_IGT_value();
     std::string getStatus();
     std::string getGameID();
+    MemWatchEntry *gameid_entry;
     MemWatchEntry *igt_entry;
     std::vector<std::vector<int>> item_values();
     int artifact_count();
