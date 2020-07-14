@@ -39,6 +39,9 @@ std::vector<std::vector<int>> PrimeHook::item_values(){
             if(item_grid[i][j].entry->readMemoryFromRAM() == Common::MemOperationReturnCode::justK){
                 line.push_back(stoi(item_grid[i][j].entry->getStringFromMemory()));
             }
+            else{
+                line.push_back(0);
+            }
         }
         item_vals.push_back(line);
     }
@@ -158,7 +161,7 @@ std::string PrimeHook::get_IGT_value(){
         if(igt_entry->readMemoryFromRAM() == Common::MemOperationReturnCode::justK){
             return format_IGT(igt_entry->getStringFromMemory());
         }
-        return "not hooked";
+        return "";
     }
     return "nullptr here";
 }
@@ -185,6 +188,7 @@ bool PrimeHook::checkHook(){
         return true;
     }
     else{
+        //DolphinComm::DolphinAccessor::unHook();
         return false;
     }
 }
@@ -196,6 +200,7 @@ bool PrimeHook::attemptHook(){
             return true;
         }
     }
+    //DolphinComm::DolphinAccessor::unHook();
     return false;
 }
 
