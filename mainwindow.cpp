@@ -139,6 +139,8 @@ void MainWindow::update_data(){
         ui->retry_button->show();
     }
     else{
+        ui->dolphin_status->setText("Dolphin status: Connected");
+        ui->retry_button->hide();
         ui->IGT_label->setText("IGT: " + QString::fromStdString(ph->get_IGT_value()));
         std::vector<std::vector<int>> items = ph->item_values();
         for(unsigned i = 0; i < items.size(); i++){
@@ -155,6 +157,7 @@ void MainWindow::update_data(){
         QLabel *missile_text = MainWindow::findChild<QLabel *>("missile_label");
         QLabel *etank_text = MainWindow::findChild<QLabel *>("etank_label");
         QLabel *pb_text = MainWindow::findChild<QLabel *>("pb_label");
+
 
         if(!items[0][0]){
             missile_text->hide();
@@ -184,9 +187,14 @@ void MainWindow::update_data(){
             art_text->show();
         }
 
-        missile_text->setText(QString::number(items[0][0]));
-        etank_text->setText(QString::number(items[0][1]));
-        pb_text->setText(QString::number(items[1][4]));
+        if (items[0].size() >= 5) {
+            missile_text->setText(QString::number(items[0][0]));
+            etank_text->setText(QString::number(items[0][1]));
+        }
+        if (items[1].size() >= 5) {
+            pb_text->setText(QString::number(items[1][4]));
+        }
+        
     }
 }
 
