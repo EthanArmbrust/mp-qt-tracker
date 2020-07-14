@@ -29,7 +29,7 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 set(TS_FILES mp-qt-tracker_en_US.ts)
 
 if(WIN32)
-    set(PLATFORM_CODE  DolphinProcess/Windows/WindowsDolphinProcess.cpp)
+    set(PLATFORM_CODE  WIN32 DolphinProcess/Windows/WindowsDolphinProcess.cpp)
 else()
     set(PLATFORM_CODE  DolphinProcess/Linux/LinuxDolphinProcess.cpp)
 endif()
@@ -44,6 +44,7 @@ if(ANDROID)
   )
 else()
   add_executable(mp-qt-tracker
+    ${PLATFORM_CODE}
     main.cpp
     mainwindow.cpp
     mainwindow.h
@@ -53,7 +54,6 @@ else()
     Common/MemoryCommon.cpp
     MemoryWatch/MemWatchEntry.cpp
     DolphinProcess/DolphinAccessor.cpp
-    ${PLATFORM_CODE}
     ${TS_FILES}
   )
 endif()
