@@ -29,7 +29,7 @@ find_package(Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 set(TS_FILES mp-qt-tracker_en_US.ts)
 
 if(WIN32)
-    set(PLATFORM_CODE  WIN32 DolphinProcess/Windows/WindowsDolphinProcess.cpp)
+    set(PLATFORM_CODE  WIN32 Icon.rc DolphinProcess/Windows/WindowsDolphinProcess.cpp)
 else()
     set(PLATFORM_CODE  DolphinProcess/Linux/LinuxDolphinProcess.cpp)
 endif()
