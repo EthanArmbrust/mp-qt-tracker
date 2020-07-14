@@ -156,7 +156,7 @@ std::string PrimeHook::format_IGT(std::string raw_IGT)
 
 std::string PrimeHook::get_IGT_value(){
     //DolphinComm::DolphinAccessor::hook();
-    DolphinComm::DolphinAccessor::updateRAMCache();
+    //DolphinComm::DolphinAccessor::updateRAMCache();
     if(igt_entry != nullptr){
         if(igt_entry->readMemoryFromRAM() == Common::MemOperationReturnCode::justK){
             return format_IGT(igt_entry->getStringFromMemory());
@@ -207,7 +207,7 @@ bool PrimeHook::attemptHook(){
 
 std::string PrimeHook::getGameID(){
     //std::cout << "Checking game id" << std::endl;
-    DolphinComm::DolphinAccessor::updateRAMCache();
+    //DolphinComm::DolphinAccessor::updateRAMCache();
     std::string game_id = DolphinComm::DolphinAccessor::getFormattedValueFromCache(Common::dolphinAddrToOffset(0x80000000), Common::MemType::type_string, sizeof(char) * 6, Common::MemBase::base_none, true);
     //std::cout << "Checked" << std::endl;
     return game_id;
