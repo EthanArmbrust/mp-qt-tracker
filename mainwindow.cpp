@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //ui->gridLayout->SetFixedSize(ITEM_DIM * 6, ITEM_DIM * 4);
 
+    this->setStyleSheet("background-color:black; color:white");
+
     setGridImage(0,0, ":/mp/resources/Missile_launcher.png");
     setGridImage(0,1, ":/mp/resources/etank.png");
     setGridImage(0,2, ":/mp/resources/Wave_beam.png");
@@ -51,25 +53,25 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel *art_text = new QLabel();
     art_text->setObjectName("art_label");
     art_text->setText("0");
-    art_text->setStyleSheet("color:yellow; font-weight:bold; font-size:24pt; padding-left:12px");
+    art_text->setStyleSheet("color:yellow; font-weight:bold; font-size:24pt; padding-left:12px; background-color:rgba(0,0,0,0)");
     ui->artifact_layout->addWidget(art_text,0,0, Qt::AlignCenter);
 
     QLabel *missile_text = new QLabel();
     missile_text->setObjectName("missile_label");
     missile_text->setText("255");
-    missile_text->setStyleSheet("font-size:16pt; padding-left:12px");
+    missile_text->setStyleSheet("font-size:16pt; padding-left:12px; background-color:rgba(0,0,0,0)");
     ui->missile_layout->addWidget(missile_text,0,0,Qt::AlignHCenter | Qt::AlignBottom);
 
     QLabel *etank_text = new QLabel();
     etank_text->setObjectName("etank_label");
     etank_text->setText("14");
-    etank_text->setStyleSheet("font-size:16pt; padding-left:12px");
+    etank_text->setStyleSheet("font-size:16pt; padding-left:12px; background-color:rgba(0,0,0,0)");
     ui->etank_layout->addWidget(etank_text,0,0,Qt::AlignHCenter | Qt::AlignBottom);
 
     QLabel *pb_text = new QLabel();
     pb_text->setObjectName("pb_label");
     pb_text->setText("8");
-    pb_text->setStyleSheet("font-size:16pt; padding-left:12px");
+    pb_text->setStyleSheet("font-size:16pt; padding-left:12px; background-color:rgba(0,0,0,0)");
     ui->pb_layout->addWidget(pb_text,0,0,Qt::AlignHCenter | Qt::AlignBottom);
 
     QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect(this);
