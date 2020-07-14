@@ -53,7 +53,7 @@ else()
     Common/MemoryCommon.cpp
     MemoryWatch/MemWatchEntry.cpp
     DolphinProcess/DolphinAccessor.cpp
-    DolphinProcess/Windows/WindowsDolphinProcess.cpp
+    ${PLATFORM_CODE}
     ${TS_FILES}
   )
 endif()
