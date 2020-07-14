@@ -97,6 +97,11 @@ MainWindow::MainWindow(QWidget *parent)
     pb_text->setGraphicsEffect(effect3);
     art_text->setGraphicsEffect(effect4);
 
+    missile_text->hide();
+    etank_text->hide();
+    pb_text->hide();
+    art_text->hide();
+
     ui->retry_button->hide();
 
     connect(ui->retry_button, SIGNAL(clicked()), this, SLOT(onRetryClicked()));
@@ -150,6 +155,34 @@ void MainWindow::update_data(){
         QLabel *missile_text = MainWindow::findChild<QLabel *>("missile_label");
         QLabel *etank_text = MainWindow::findChild<QLabel *>("etank_label");
         QLabel *pb_text = MainWindow::findChild<QLabel *>("pb_label");
+
+        if(!items[0][0]){
+            missile_text->hide();
+        }
+        else{
+            missile_text->show();
+        }
+
+        if(!items[0][1]){
+            etank_text->hide();
+        }
+        else{
+            etank_text->show();
+        }
+
+        if(!items[1][4]){
+            pb_text->hide();
+        }
+        else{
+            pb_text->show();
+        }
+
+        if(!art_count){
+            art_text->hide();
+        }
+        else{
+            art_text->show();
+        }
 
         missile_text->setText(QString::number(items[0][0]));
         etank_text->setText(QString::number(items[0][1]));

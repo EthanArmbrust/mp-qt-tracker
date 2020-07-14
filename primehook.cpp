@@ -7,6 +7,8 @@
 #include "DolphinProcess/DolphinAccessor.h"
 #include "Common/CommonUtils.h"
 
+#include <iostream>
+
 #define MEM_START 0x80000000
 #define INVENTORY_START 0x804578CC
 
@@ -199,8 +201,10 @@ bool PrimeHook::attemptHook(){
 
 
 std::string PrimeHook::getGameID(){
+    //std::cout << "Checking game id" << std::endl;
     DolphinComm::DolphinAccessor::updateRAMCache();
     std::string game_id = DolphinComm::DolphinAccessor::getFormattedValueFromCache(Common::dolphinAddrToOffset(0x80000000), Common::MemType::type_string, sizeof(char) * 6, Common::MemBase::base_none, true);
+    //std::cout << "Checked" << std::endl;
     return game_id;
 }
 
