@@ -41,7 +41,7 @@ enum class MemOperationReturnCode
   invalidInput,
   operationFailed,
   inputTooLong,
-  justK,
+  OK,
   invalidPointer
 };
 

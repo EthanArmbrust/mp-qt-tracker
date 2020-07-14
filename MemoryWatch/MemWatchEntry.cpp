@@ -130,7 +130,7 @@ void MemWatchEntry::setLock(const bool doLock)
   m_lock = doLock;
   if (m_lock)
   {
-    if (readMemoryFromRAM() == Common::MemOperationReturnCode::justK)
+    if (readMemoryFromRAM() == Common::MemOperationReturnCode::OK)
     {
       m_freezeMemSize = getSizeForType(m_type, m_length);
       m_freezeMemory = new char[m_freezeMemSize];
@@ -250,7 +250,7 @@ Common::MemOperationReturnCode MemWatchEntry::readMemoryFromRAM()
   if (DolphinComm::DolphinAccessor::readFromRAM(Common::dolphinAddrToOffset(realConsoleAddress),
                                                 m_memory, getSizeForType(m_type, m_length),
                                                 shouldBeBSwappedForType(m_type)))
-    return Common::MemOperationReturnCode::justK;
+    return Common::MemOperationReturnCode::OK;
   return Common::MemOperationReturnCode::operationFailed;
 }
 
@@ -288,7 +288,7 @@ Common::MemOperationReturnCode MemWatchEntry::writeMemoryToRAM(const char *memor
 
   if (DolphinComm::DolphinAccessor::writeToRAM(Common::dolphinAddrToOffset(realConsoleAddress),
                                                memory, size, shouldBeBSwappedForType(m_type)))
-    return Common::MemOperationReturnCode::justK;
+    return Common::MemOperationReturnCode::OK;
   return Common::MemOperationReturnCode::operationFailed;
 }
 
@@ -301,15 +301,15 @@ std::string MemWatchEntry::getStringFromMemory() const
 
 Common::MemOperationReturnCode MemWatchEntry::writeMemoryFromString(const std::string &inputString)
 {
-  Common::MemOperationReturnCode writeReturn = Common::MemOperationReturnCode::justK;
+  Common::MemOperationReturnCode writeReturn = Common::MemOperationReturnCode::OK;
   size_t sizeToWrite = 0;
   char *buffer =
       Common::formatStringToMemory(writeReturn, sizeToWrite, inputString, m_base, m_type, m_length);
-  if (writeReturn != Common::MemOperationReturnCode::justK)
+  if (writeReturn != Common::MemOperationReturnCode::OK)
     return writeReturn;
 
   writeReturn = writeMemoryToRAM(buffer, sizeToWrite);
-  if (writeReturn == Common::MemOperationReturnCode::justK)
+  if (writeReturn == Common::MemOperationReturnCode::OK)
   {
     if (m_lock)
       std::memcpy(m_freezeMemory, buffer, m_freezeMemSize);

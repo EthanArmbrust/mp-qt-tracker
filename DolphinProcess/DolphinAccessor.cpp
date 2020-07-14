@@ -126,7 +126,7 @@ namespace DolphinComm
     // Read GameCube and Wii basic RAM
     if (!DolphinComm::DolphinAccessor::readFromRAM(0, m_updatedRAMCache, Common::MEM1_SIZE, false))
       return Common::MemOperationReturnCode::operationFailed;
-    return Common::MemOperationReturnCode::justK;
+    return Common::MemOperationReturnCode::OK;
   }
 
   std::string DolphinAccessor::getFormattedValueFromCache(const u32 ramIndex, Common::MemType memType,
