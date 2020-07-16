@@ -32,3 +32,12 @@ Credits:
         Source: https://github.com/aldelaro5/Dolphin-memory-engine
     Layout inspiration and icons from Dyceron/Pwootage Prime tracker.
         Download: https://mega.nz/#!KuQ3ECSB!F0KvqUkeoBTYQiAFag7kZtHYWPg8D51q5JLGtwqRoRE
+
+Changelog:
+
+v1.1
+    -Greatly improve performance and lower cpu usage
+    -Move Charge Beam icon next to beam combos and move Space Jump Boots to bottom row
+    -Added readme and license
+v1.0
+    -Initial Release
