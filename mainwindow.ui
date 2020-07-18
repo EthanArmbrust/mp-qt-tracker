@@ -68,24 +68,10 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="8">
-      <widget class="QLabel" name="item_24">
-       <property name="text">
-        <string>SJ</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="6">
       <widget class="QLabel" name="item_13">
        <property name="text">
         <string>Spider</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="5">
-      <widget class="QLabel" name="item_22">
-       <property name="text">
-        <string>Ice Sprea</string>
        </property>
       </widget>
      </item>
@@ -104,13 +90,6 @@
       <widget class="QLabel" name="item_12">
        <property name="text">
         <string>Boost</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="6">
-      <widget class="QLabel" name="item_33">
-       <property name="text">
-        <string>Charge</string>
        </property>
       </widget>
      </item>
@@ -181,13 +160,6 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="6">
-      <widget class="QLabel" name="item_23">
-       <property name="text">
-        <string>Flamethr</string>
-       </property>
-      </widget>
-     </item>
      <item row="3" column="4">
       <widget class="QLabel" name="item_31">
        <property name="text">
@@ -195,24 +167,10 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="2">
-      <widget class="QLabel" name="item_20">
-       <property name="text">
-        <string>Supers</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="10">
       <widget class="QLabel" name="item_15">
        <property name="text">
         <string>Thermal</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="4">
-      <widget class="QLabel" name="item_21">
-       <property name="text">
-        <string>WaveBus</string>
        </property>
       </widget>
      </item>
@@ -240,6 +198,48 @@
         </widget>
        </item>
       </layout>
+     </item>
+     <item row="2" column="8">
+      <widget class="QLabel" name="item_23">
+       <property name="text">
+        <string>Flamethr</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="6">
+      <widget class="QLabel" name="item_22">
+       <property name="text">
+        <string>Ice Sprea</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QLabel" name="item_21">
+       <property name="text">
+        <string>WaveBus</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="item_20">
+       <property name="text">
+        <string>Supers</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="item_33">
+       <property name="text">
+        <string>Charge</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QLabel" name="item_24">
+       <property name="text">
+        <string>SJ</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
